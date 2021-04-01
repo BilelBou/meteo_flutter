@@ -46,23 +46,26 @@ class _HomePageState extends State<HomePage> {
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        unselectedIconTheme: IconThemeData(color: Color.fromARGB(220, 220, 220, 220), size: 25),
-        selectedIconTheme: IconThemeData(color: Colors.white, size: 26),
+        unselectedIconTheme: IconThemeData(color: Color(0xff071343), size: 25),
+        selectedIconTheme: IconThemeData(color: Color(0xff2b4efe), size: 26),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+
 
         onTap: _onNavBarItemTap,
         // List of items/icons in the bottom navigation bar, these will be linked to pages
         items: [
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.wb_sunny
+              Icons.wb_sunny,
             ),
-            label: 'Dashboard',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
             ),
-            label: 'Settings',
+            label: '',
           ),
         ],
         currentIndex: _navBarSelectedIndex,
