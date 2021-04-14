@@ -7,6 +7,7 @@ import 'package:meteo_flutter/components/hour_vertical_pill.dart';
 import 'package:meteo_flutter/components/meteo_page.dart';
 import 'package:meteo_flutter/components/subtitle_action.dart';
 import 'package:meteo_flutter/main.dart';
+import 'package:meteo_flutter/navigationSystem.dart';
 import 'package:meteo_flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -122,8 +123,8 @@ class _DashboardState extends State<Dashboard> {
         SubtitleAction(
           title: "Next 5 days",
           action: () {
-            // Open other page
-            print("next 5 days page");
+            // Open some other page when clicking icon
+            NavigationSystem.instance.navigateTo('/settings');
           },
         ),
         SizedBox(height: 5,),

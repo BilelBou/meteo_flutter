@@ -1,6 +1,8 @@
+import 'package:meteo_flutter/navigationSystem.dart';
 import 'package:meteo_flutter/pages/dashboard.dart';
 import 'package:meteo_flutter/pages/settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:meteo_flutter/routeGenerator.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -32,18 +34,24 @@ class _HomePageState extends State<HomePage> {
 
   // Handle navigation bar tapping to change page
   void _onNavBarItemTap(int selectedIndex) {
-    _pageController.jumpToPage(selectedIndex);
+    switch (selectedIndex) {
+      case 0:
+        NavigationSystem.instance.navigateTo('/dashboard');
+        break;
+      case 1:
+        NavigationSystem.instance.navigateTo('/settings');
+        break;
+    }
   }
 
   // Widgets for bottom navigation bar
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: _listPages,
-        onPageChanged: _onPageChanged,
-        physics: NeverScrollableScrollPhysics(),
+      body: Navigator(
+        key: NavigationSystem.instance.getNavigatorKey(),
+        initialRoute: '/dashboard',
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
       bottomNavigationBar: BottomNavigationBar(
         unselectedIconTheme: IconThemeData(color: Color(0xff071343), size: 25),
