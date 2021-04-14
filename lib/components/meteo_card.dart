@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 class MeteoCard extends StatefulWidget {
-  MeteoCard({Key key, this.weather, this.windSpeed, this.humidity, this.temperature}) : super(key: key);
+  MeteoCard({Key key, @required this.weather, @required this.windSpeed, @required this.humidity, @required this.temperature}) : super(key: key);
 
   final String weather;
   final double windSpeed;

@@ -50,8 +50,6 @@ class _HomePageState extends State<HomePage> {
         selectedIconTheme: IconThemeData(color: Color(0xff2b4efe), size: 26),
         showSelectedLabels: false,
         showUnselectedLabels: false,
-
-
         onTap: _onNavBarItemTap,
         // List of items/icons in the bottom navigation bar, these will be linked to pages
         items: [
