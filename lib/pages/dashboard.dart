@@ -1,17 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:meteo_flutter/components/day_horizontal_card.dart';
+import 'package:meteo_flutter/components/day_vertical_card_list.dart';
+import 'package:meteo_flutter/components/hour_horizontal_pill_list.dart';
 import 'package:meteo_flutter/components/meteo_card.dart';
-import 'package:meteo_flutter/components/hour_vertical_pill.dart';
 import 'package:meteo_flutter/components/meteo_page.dart';
 import 'package:meteo_flutter/components/subtitle_action.dart';
-import 'package:meteo_flutter/main.dart';
 import 'package:meteo_flutter/navigationSystem.dart';
-import 'package:meteo_flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -99,23 +96,8 @@ class _DashboardState extends State<Dashboard> {
         SizedBox(
           height: 50,
         ),
-        SizedBox(
-          height: 150,
-          width: MediaQuery.of(context).size.width,
-          child: ListView.separated(
-            separatorBuilder: (_, index) => SizedBox(
-              width: 10,
-            ),
-            itemCount: 5,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              return HourVerticalPill(
-                hour: hourlyWeather[index]['time'],
-                temperature: hourlyWeather[index]['temperature'],
-                weather: hourlyWeather[index]['weather'],
-              );
-            },
-          ),
+        HourHorizontalPillList(
+          hourlyWeather: hourlyWeather,
         ),
         SizedBox(
           height: 30,
@@ -128,18 +110,8 @@ class _DashboardState extends State<Dashboard> {
           },
         ),
         SizedBox(height: 5,),
-        Expanded(
-          child: ListView.separated(
-            separatorBuilder: (_, index) => Divider(height: 1,),
-            itemCount: 5,
-            itemBuilder: (_, index) {
-              return DayHorizontalCard(
-                day: dailyWeather[index]['day'],
-                temperature: dailyWeather[index]['temperature'],
-                weather: dailyWeather[index]['weather'],
-              );
-            },
-          ),
+        DayVerticalCardList(
+          dailyWeather: dailyWeather,
         ),
       ],
     );
