@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:meteo_flutter/components/MeteoCard.dart';
 import 'package:meteo_flutter/main.dart';
 import 'package:meteo_flutter/widgets.dart';
 import 'package:flutter/material.dart';
@@ -53,120 +54,11 @@ class _DashboardState extends State<Dashboard> {
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
-                  ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                            Color(0xff7c8df5).withOpacity(0.6),
-                            Color(0xff6b82f7),
-                            Color(0xff4f66dc)
-                          ])),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 40, horizontal: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.cloud, color: Color(0xff8a9cfd)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "Cloudy",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  children: [
-                                    Icon(Icons.stacked_line_chart,
-                                        color: Color(0xff8a9cfd)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "20Km/h",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  children: [
-                                    Icon(Icons.cloud, color: Color(0xff8a9cfd)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "50%",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "15°",
-                                  style: TextStyle(
-                                    fontSize: 90,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.arrow_upward_rounded,
-                                            color: Color(0xffbfc8fa)),
-                                        Text(
-                                          "17",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 30,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.arrow_downward_rounded,
-                                            color: Color(0xffbfc8fa)),
-                                        Text(
-                                          "12",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 30,
-                                    )
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                  MeteoCard(
+                    weather: "Cloudy",
+                    windSpeed: 20,
+                    humidity: 50,
+                    temperature: 15,
                   ),
                   SizedBox(
                     height: 50,
@@ -232,9 +124,7 @@ class _DashboardState extends State<Dashboard> {
                     ],
                   ),
                   SizedBox(height: 5,),
-                  SizedBox(
-                    height: 200,
-                    width: MediaQuery.of(context).size.width,
+                  Expanded(
                     child: ListView.separated(
                       separatorBuilder: (_, index) => Divider(height: 1,),
                       itemCount: 5,
