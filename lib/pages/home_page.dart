@@ -39,6 +39,9 @@ class _HomePageState extends State<HomePage> {
         NavigationSystem.instance.navigateTo('/dashboard');
         break;
       case 1:
+        NavigationSystem.instance.navigateTo('/profile');
+        break;
+      case 2:
         NavigationSystem.instance.navigateTo('/settings');
         break;
     }
@@ -64,6 +67,12 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.wb_sunny,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.portrait,
             ),
             label: '',
           ),

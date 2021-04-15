@@ -2,6 +2,7 @@ import 'package:meteo_flutter/pages/daily_page.dart';
 import 'package:meteo_flutter/pages/dashboard.dart';
 import 'package:meteo_flutter/pages/home_page.dart';
 import 'package:meteo_flutter/pages/hourly_page.dart';
+import 'package:meteo_flutter/pages/profile_page.dart';
 import 'package:meteo_flutter/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,10 @@ class RouteGenerator {
       case '/daily':
         return MaterialPageRoute(
           builder: (_) => DailyPage(),
+        );
+      case '/profile':
+        return MaterialPageRoute(
+          builder: (_) => ProfilePage(),
         );
       default:
         // If there is no such named route in switch statement, display error
