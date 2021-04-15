@@ -94,8 +94,16 @@ class _DashboardState extends State<Dashboard> {
           temperature: 15,
         ),
         SizedBox(
-          height: 50,
+          height: 30,
         ),
+        SubtitleAction(
+          title: "Next 5 hours",
+          action: () {
+            // Open some other page when clicking icon
+            NavigationSystem.instance.navigateTo('/hourly');
+          },
+        ),
+        SizedBox(height: 5,),
         HourHorizontalPillList(
           hourlyWeather: hourlyWeather,
         ),
@@ -106,7 +114,7 @@ class _DashboardState extends State<Dashboard> {
           title: "Next 5 days",
           action: () {
             // Open some other page when clicking icon
-            NavigationSystem.instance.navigateTo('/settings');
+            NavigationSystem.instance.navigateTo('/daily');
           },
         ),
         SizedBox(height: 5,),

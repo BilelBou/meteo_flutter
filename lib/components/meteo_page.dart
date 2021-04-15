@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MeteoPage extends StatefulWidget {
-  MeteoPage({Key key, @required this.title, @required this.children}) : super(key: key);
+  MeteoPage({Key key, @required this.title, @required this.children, this.backAction}) : super(key: key);
 
   final String title;
   final List<Widget> children;
+  final VoidCallback backAction;
 
   @override
   _MeteoPageState createState() => _MeteoPageState();
@@ -34,13 +35,22 @@ class _MeteoPageState extends State<MeteoPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.title,
-                  style: TextStyle(
-                    color: Colors.grey[900],
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold
-                  ),
+                Row(
+                  children: [
+                    if (widget.backAction != null)
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: widget.backAction,
+                      ),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        color: Colors.grey[900],
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20),
                 for (var widget in widget.children)

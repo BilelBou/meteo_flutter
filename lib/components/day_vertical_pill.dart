@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class HourVerticalPill extends StatefulWidget {
-  HourVerticalPill({Key key, @required this.hour, @required this.temperature, @required this.weather, this.sizeRatio = 1}) : super(key: key);
+class DayVerticalPill extends StatefulWidget {
+  DayVerticalPill({Key key, @required this.day, @required this.temperature, @required this.weather, this.sizeRatio = 1}) : super(key: key);
 
-  final int hour;
+  final String day;
   final String temperature;
   final String weather;
   final double sizeRatio;
 
   @override
-  _HourVerticalPillState createState() => _HourVerticalPillState();
+  _DayVerticalPillState createState() => _DayVerticalPillState();
 }
 
-class _HourVerticalPillState extends State<HourVerticalPill> {
+class _DayVerticalPillState extends State<DayVerticalPill> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -34,7 +34,7 @@ class _HourVerticalPillState extends State<HourVerticalPill> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.hour.toString() + "h",
+                  widget.day,
                   style: TextStyle(
                     color: Color(0xffbac0d8), fontSize: 15 * widget.sizeRatio
                   ),

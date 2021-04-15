@@ -1,5 +1,4 @@
 import 'package:meteo_flutter/components/meteo_page.dart';
-import 'package:meteo_flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
