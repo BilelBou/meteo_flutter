@@ -83,12 +83,26 @@ class _ProfilePageState extends State<ProfilePage> {
           ]
         ),
         SizedBox(height: 30),
-        Text(
-          'Bio of user. Lorem ipsum etc',
-          style: TextStyle(
-            fontSize: 14,
+        Container(
+          height: 500,
+          width: 400,
+          child: Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: Text(
+              "email@email.com",
+              style: TextStyle(
+                fontSize: 18
+              ),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 5,
+            margin: EdgeInsets.all(10),
           ),
         ),
+
       ],
     );
   }
