@@ -105,6 +105,31 @@ class _HourlyPageState extends State<HourlyPage> {
       'weather': 'sun',
       'temperature': '13.5'
     },
+    {
+      'time': 19,
+      'weather': 'sun',
+      'temperature': '15'
+    },
+    {
+      'time': 20,
+      'weather': 'rain',
+      'temperature': '14'
+    },
+    {
+      'time': 21,
+      'weather': 'rain',
+      'temperature': '13'
+    },
+    {
+      'time': 22,
+      'weather': 'sun',
+      'temperature': '15'
+    },
+    {
+      'time': 23,
+      'weather': 'rain',
+      'temperature': '14'
+    },
   ];
 
   @override
@@ -118,7 +143,7 @@ class _HourlyPageState extends State<HourlyPage> {
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
-            children: List.generate(19, (index) {
+            children: List.generate(24, (index) {
               return HourVerticalPill(
                 sizeRatio: 1.5,
                 hour: hourlyWeather[index]['time'],
